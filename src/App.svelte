@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { keys } from 'onyx-ui/actions';
   import Dashboard from 'onyx-ui/components/app/Dashboard.svelte';
   import OnyxApp from 'onyx-ui/components/app/OnyxApp.svelte';
-  import Router from 'svelte-spa-router';
+  import Router, { location, pop } from 'svelte-spa-router';
   import AppMenu from './components/AppMenu.svelte';
   import AppSettings from './routes/AppSettings.svelte';
   import Cards from './routes/Cards.svelte';
@@ -12,8 +13,6 @@
   import Redirect from './routes/Redirect.svelte';
   import Typography from './routes/Typography.svelte';
   import { settings } from './stores/settings';
-
-  // registerAppMenu(AppMenu);
 
   const routes = {
     '/': Home,
@@ -34,3 +33,17 @@
     <Dashboard slot="dashboard">Hello</Dashboard>
   {/if}
 </OnyxApp>
+<div
+  use:keys={{
+    onBackspace: () => {
+      // If on the main screen, let KaiOS minimize the app
+      if ($location === '/') {
+        console.log('exit app');
+        return false;
+      }
+
+      pop();
+      return true;
+    },
+  }}
+/>
