@@ -97,35 +97,6 @@
           />
         </CardContent>
       </Card>
-    {:else if params.cardId === $view.cards[2].id}
-      <Card cardId={$view.cards[2].id}>
-        <CardHeader />
-        <CardContent>
-          <Typography type="titleSmall">Dialog 1</Typography>
-          <Typography
-            >An example of a dialog that has a title, body, and three different actions. This
-            component is used to prompt the user for a choice. If can also be used as a simple alert
-            with customizable key functions.</Typography
-          >
-          <Button
-            title="Open"
-            color={Color.Primary}
-            navi={{
-              itemId: `alert1`,
-              onSelect: () =>
-                Onyx.dialog.show({
-                  title: 'Dialog Title',
-                  body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent facilisis fringilla ligula, vel porta sem rhoncus id.',
-                  actions: {
-                    left: { label: 'Action1', fn: () => console.log('Action1') },
-                    center: { label: 'Action2', fn: () => console.log('Action2') },
-                    right: { label: 'Action3', fn: () => console.log('Action3') },
-                  },
-                }),
-            }}
-          />
-        </CardContent>
-      </Card>
     {/if}
   </ViewContent>
 </View>

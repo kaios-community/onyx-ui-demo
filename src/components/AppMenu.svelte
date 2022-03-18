@@ -12,6 +12,7 @@
   import MdHome from 'svelte-icons/md/MdHome.svelte';
   import MdInfoOutline from 'svelte-icons/md/MdInfoOutline.svelte';
   import MdList from 'svelte-icons/md/MdList.svelte';
+  import MdRemove from 'svelte-icons/md/MdRemove.svelte';
   import MdSettings from 'svelte-icons/md/MdSettings.svelte';
   import MdTextFields from 'svelte-icons/md/MdTextFields.svelte';
   import MdTextFormat from 'svelte-icons/md/MdTextFormat.svelte';
@@ -33,6 +34,7 @@
     { id: 'forms', text: 'Forms', route: '/forms/info', icon: MdTextFormat },
     { id: 'alerts', text: 'Alerts', route: '/alerts/info', icon: MdInfoOutline },
     { id: 'dialogs', text: 'Dialogs', route: '/dialogs/info', icon: MdHelpOutline },
+    { id: 'toasts', text: 'Toasts', route: '/toasts/info', icon: MdRemove },
     { id: 'settings', text: 'Settings', route: '/settings/display', icon: MdSettings },
   ];
 </script>

@@ -16,6 +16,7 @@
   import Home from './routes/Home.svelte';
   import Lists from './routes/Lists.svelte';
   import Redirect from './routes/Redirect.svelte';
+  import Toasts from './routes/Toasts.svelte';
   import Typography from './routes/Typography.svelte';
   import { settings } from './stores/settings';
 
@@ -30,6 +31,7 @@
     '/alerts/:cardId': Alerts,
     '/dialogs/:cardId': Dialogs,
     '/popups/:cardId': Popups,
+    '/toasts/:cardId': Toasts,
     '/settings/:cardId': AppSettings,
     '*': Redirect,
   };
