@@ -6,9 +6,12 @@
   import { onMount } from 'svelte';
   import Router, { location, pop } from 'svelte-spa-router';
   import AppMenu from './components/AppMenu.svelte';
+  import Alerts from './routes/Alerts.svelte';
   import AppSettings from './routes/AppSettings.svelte';
+  import Buttons from './routes/Buttons.svelte';
   import Cards from './routes/Cards.svelte';
   import ContextMenus from './routes/ContextMenus.svelte';
+  import { default as Dialogs, default as Popups } from './routes/Dialogs.svelte';
   import Form from './routes/Form.svelte';
   import Home from './routes/Home.svelte';
   import Lists from './routes/Lists.svelte';
@@ -22,7 +25,11 @@
     '/typography/:cardId': Typography,
     '/lists/:cardId': Lists,
     '/contextMenus/:cardId': ContextMenus,
+    '/buttons/:cardId': Buttons,
     '/forms/:cardId': Form,
+    '/alerts/:cardId': Alerts,
+    '/dialogs/:cardId': Dialogs,
+    '/popups/:cardId': Popups,
     '/settings/:cardId': AppSettings,
     '*': Redirect,
   };

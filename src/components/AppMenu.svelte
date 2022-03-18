@@ -8,7 +8,9 @@
   import MdContentCopy from 'svelte-icons/md/MdContentCopy.svelte';
   import MdCrop169 from 'svelte-icons/md/MdCrop169.svelte';
   import MdExpandLess from 'svelte-icons/md/MdExpandLess.svelte';
+  import MdHelpOutline from 'svelte-icons/md/MdHelpOutline.svelte';
   import MdHome from 'svelte-icons/md/MdHome.svelte';
+  import MdInfoOutline from 'svelte-icons/md/MdInfoOutline.svelte';
   import MdList from 'svelte-icons/md/MdList.svelte';
   import MdSettings from 'svelte-icons/md/MdSettings.svelte';
   import MdTextFields from 'svelte-icons/md/MdTextFields.svelte';
@@ -29,6 +31,8 @@
     { id: 'typography', text: 'Typography', route: '/typography/info', icon: MdTextFields },
     { id: 'buttons', text: 'Buttons', route: '/buttons/info', icon: MdCrop169 },
     { id: 'forms', text: 'Forms', route: '/forms/info', icon: MdTextFormat },
+    { id: 'alerts', text: 'Alerts', route: '/alerts/info', icon: MdInfoOutline },
+    { id: 'dialogs', text: 'Dialogs', route: '/dialogs/info', icon: MdHelpOutline },
     { id: 'settings', text: 'Settings', route: '/settings/display', icon: MdSettings },
   ];
 </script>
