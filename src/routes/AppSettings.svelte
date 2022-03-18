@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { replace } from 'svelte-spa-router';
   import Card from 'onyx-ui/components/card/Card.svelte';
   import CardContent from 'onyx-ui/components/card/CardContent.svelte';
   import CardHeader from 'onyx-ui/components/card/CardHeader.svelte';
@@ -13,6 +11,8 @@
   import ViewContent from 'onyx-ui/components/view/ViewContent.svelte';
   import { Animations, DataStatus, Density, TextSize, TextWeight } from 'onyx-ui/enums';
   import { registerView, updateView, view } from 'onyx-ui/stores/view';
+  import { onMount } from 'svelte';
+  import { replace } from 'svelte-spa-router';
   import type { Settings } from '../models';
   import { settings } from '../stores/settings';
   import { themes } from '../themes';
@@ -192,14 +192,14 @@
           <ListHeader title="General" />
           <SelectRow
             label="Animation Speed"
-            value={$settings.animations}
+            value={$settings.animationSpeed}
             options={[
               { id: Animations.Instant, label: 'Instant' },
               { id: Animations.Fast, label: 'Fast' },
               { id: Animations.Normal, label: 'Normal' },
               { id: Animations.Slow, label: 'Slow' },
             ]}
-            onChange={(val) => handleChange('animations', val)}
+            onChange={(val) => handleChange('animationSpeed', val)}
           />
           <ListHeader title="Shortcut Keys" />
           <ToggleRow

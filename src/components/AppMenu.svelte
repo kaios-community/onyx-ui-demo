@@ -1,4 +1,10 @@
 <script lang="ts">
+  import ListItem from 'onyx-ui/components/list/ListItem.svelte';
+  import NavGroup from 'onyx-ui/components/nav/NavGroup.svelte';
+  import { ViewState } from 'onyx-ui/enums';
+  import { Onyx } from 'onyx-ui/services';
+  import { updateView } from 'onyx-ui/stores/view';
+  import { getShortcutFromIndex } from 'onyx-ui/utils/getShortcutFromIndex';
   import MdContentCopy from 'svelte-icons/md/MdContentCopy.svelte';
   import MdCrop169 from 'svelte-icons/md/MdCrop169.svelte';
   import MdExpandLess from 'svelte-icons/md/MdExpandLess.svelte';
@@ -8,12 +14,6 @@
   import MdTextFields from 'svelte-icons/md/MdTextFields.svelte';
   import MdTextFormat from 'svelte-icons/md/MdTextFormat.svelte';
   import { push } from 'svelte-spa-router';
-  import ListItem from 'onyx-ui/components/list/ListItem.svelte';
-  import NavGroup from 'onyx-ui/components/nav/NavGroup.svelte';
-  import { ViewState } from 'onyx-ui/enums';
-  import { app } from 'onyx-ui/stores/app';
-  import { updateView } from 'onyx-ui/stores/view';
-  import { shortcutFromIndex } from 'onyx-ui/utils/shortcutFromIndex';
 
   type MenuItem = {
     id: string;
@@ -42,11 +42,11 @@
         primaryText={item.text}
         navi={{
           itemId: item.id,
-          shortcutKey: shortcutFromIndex(i),
+          shortcutKey: getShortcutFromIndex(i),
           onSelect: () => {
-            app.closeAppMenu();
+            Onyx.appMenu.close();
             if (location.hash.startsWith(`#${item.route}`)) {
-              updateView({ viewing: ViewState.Content });
+              updateView({ viewing: ViewState.Card });
               return;
             }
             push(item.route);

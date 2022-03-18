@@ -29,6 +29,8 @@
   --secondary-text-a: 0.5;
 
   --app-bg-color: hsla(0, 0%, 0%, 1);
+  --app-text-color: hsla(0, 0%, 100%, 0.88);
+
   --text-color: hsla(
     var(--text-color-h),
     var(--text-color-s),
@@ -80,7 +82,7 @@ body {
   background: var(--app-bg-color);
   font-family: 'Open Sans', sans-serif;
   font-weight: var(--regular-font-weight);
-  color: var(--text-color);
+  color: var(--app-text-color);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;

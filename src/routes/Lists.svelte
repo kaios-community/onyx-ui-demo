@@ -1,6 +1,4 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { replace } from 'svelte-spa-router';
   import Card from 'onyx-ui/components/card/Card.svelte';
   import CardContent from 'onyx-ui/components/card/CardContent.svelte';
   import CardHeader from 'onyx-ui/components/card/CardHeader.svelte';
@@ -10,7 +8,9 @@
   import ViewContent from 'onyx-ui/components/view/ViewContent.svelte';
   import { DataStatus } from 'onyx-ui/enums';
   import { registerView, updateView, view } from 'onyx-ui/stores/view';
-  import { shortcutFromIndex } from 'onyx-ui/utils/shortcutFromIndex';
+  import { getShortcutFromIndex } from 'onyx-ui/utils/getShortcutFromIndex';
+  import { onMount } from 'svelte';
+  import { replace } from 'svelte-spa-router';
 
   export let params: { cardId: string };
 
@@ -101,7 +101,7 @@
               secondaryText="Secondary text"
               navi={{
                 itemId: `${i + 1}`,
-                shortcutKey: shortcutFromIndex(i),
+                shortcutKey: getShortcutFromIndex(i),
               }}
             />
           {/each}
@@ -118,7 +118,7 @@
               secondaryText="Secondary text"
               navi={{
                 itemId: `${i + 1}`,
-                shortcutKey: shortcutFromIndex(i),
+                shortcutKey: getShortcutFromIndex(i),
               }}
             />
           {/each}

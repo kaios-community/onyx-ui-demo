@@ -1,7 +1,7 @@
-import { writable } from 'svelte/store';
 import { Animations, Density, TextSize, TextWeight } from 'onyx-ui/enums';
+import { Storage } from 'onyx-ui/services';
 import { themes } from 'onyx-ui/themes';
-import { getStorageItem, setStorageItem, StorageKey } from 'onyx-ui/utils/storage';
+import { writable } from 'svelte/store';
 import type { Settings } from '../models';
 
 const defaultSettings: Settings = {
@@ -10,7 +10,7 @@ const defaultSettings: Settings = {
   textWeight: TextWeight.Medium,
   displayDensity: Density.Normal,
   borderRadius: 14,
-  animations: Animations.Normal,
+  animationSpeed: Animations.Normal,
   showHelpText: true,
   // Shortcuts
   enableShortcutKeys: true,
@@ -29,9 +29,12 @@ const defaultSettings: Settings = {
   textColorL: themes[0].values.textColorL,
   focusColorA: themes[0].values.focusColorA,
   dividerColorA: themes[0].values.dividerColorA,
+  // Toaster
+  toasterLocation: 'bottom',
+  toasterDuration: 3000,
 };
 
-const storedSettings = getStorageItem<Settings>(StorageKey.Settings);
+const storedSettings = Storage.get<Settings>('settings');
 
 function createSettings() {
   const { subscribe, update } = writable<Settings>({
@@ -40,7 +43,7 @@ function createSettings() {
   });
 
   subscribe((val) => {
-    setStorageItem(StorageKey.Settings, val);
+    Storage.set('settings', val);
   });
 
   return {
